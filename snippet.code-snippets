@@ -1,0 +1,28 @@
+{
+  "Run Predefined Prompt": {
+    "prefix": "run-predefined-prompt",
+    "body": [
+      "// Get the active editor",
+      "const editor = vscode.window.activeTextEditor;",
+      "",
+      "// Check if an editor is active and a document is open",
+      "if (editor && editor.document) {",
+      "  // Get the document and its content",
+      "  const document = editor.document;",
+      "  const code = document.getText();",
+      "",
+      "  // Predefined prompt",
+      "  const prompt = 'Your predefined prompt here';",
+      "",
+      "  // Send the code and prompt to ChatGPT for processing",
+      "  const result = chatGpt.processCodeWithPrompt(code, prompt);",
+      "",
+      "  // Handle the result, e.g., display it in a new editor tab",
+      "  vscode.workspace.openTextDocument({",
+      "    content: result",
+      "  }).then((doc) => vscode.window.showTextDocument(doc));",
+      "}"
+    ],
+    "description": "Run a predefined prompt against the code in the currently open file"
+  }
+}
